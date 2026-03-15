@@ -1,0 +1,94 @@
+# Assignments and Quizzes
+## End-to-End Chest Disease Classification Project
+
+### Part 1: Hands-on Assignments
+
+**Assignment 1: Model Experimentation**
+*   **Objective**: Replace the VGG16 base model with **ResNet50**.
+*   **Tasks**:
+    1.  Modify `src/cnnClassifier/entity/config_entity.py` to accept ResNet50 params if needed.
+    2.  Update `params.yaml` with ResNet50 specific weights and input shape.
+    3.  Modify `src/cnnClassifier/components/prepare_base_model.py` to import and use `ResNet50` from `tensorflow.keras.applications`.
+    4.  Run `dvc repro` to retrain the model.
+    5.  Compare the results in MLflow with the VGG16 run.
+
+**Assignment 2: DVC Pipeline Extension**
+*   **Objective**: Add a data validation stage.
+*   **Tasks**:
+    1.  Create a new component `DataValidation` in `src/cnnClassifier/components`.
+    2.  This component should check if the number of files in the ingestion directory matches a predefined expected count.
+    3.  Define the stage in `dvc.yaml` to run after `data_ingestion` and before `prepare_base_model`.
+    4.  Execute the pipeline.
+
+**Assignment 3: Web Application Enhancement**
+*   **Objective**: Show prediction confidence scores on the UI.
+*   **Tasks**:
+    1.  Modify `app.py` and the prediction pipeline.
+    2.  Instead of just returning the class label, return the probability score from the model.
+    3.  Update `templates/index.html` to display this score alongside the prediction.
+
+**Assignment 4: CI/CD Pipeline**
+*   **Objective**: Add a linting step.
+*   **Tasks**:
+    1.  Create a strict `flake8` configuration.
+    2.  Modify `.github/workflows/main.yaml`.
+    3.  Add a step before building the Docker image to run `flake8 src`.
+    4.  Ensure the build fails if the code quality code is not met.
+
+---
+
+### Part 2: Quizzes
+
+**Quiz 1: MLOps Concepts**
+1.  **What is the primary purpose of `dvc.yaml` in this project?**
+    a) To install Python dependencies.
+    b) To define the DAG (Directed Acyclic Graph) of pipeline stages.
+    c) To track MLflow experiments.
+    d) To configure AWS credentials.
+
+2.  **Which component is responsible for loading the initial dataset?**
+    a) `DataValidation`
+    b) `ModelTrainer`
+    c) `DataIngestion`
+    d) `ModelEvaluation`
+
+3.  **Why do we use `src` as a package structure?**
+    a) Ideally to hide the code from users.
+    b) To make the code modular, reusable, and importable.
+    c) It is a requirement for AWS deployment.
+    d) It makes the code run faster.
+
+**Quiz 2: Tools & Technologies**
+1.  **MLflow is used for:**
+    a) Containerization
+    b) Data Version Control
+    c) Experiment Tracking and Model Registry
+    d) CI/CD Automation
+
+2.  **In the `params.yaml` file, what information is typically stored?**
+    a) AWS Secret Keys
+    b) Hyperparameters like Batch Size and Learning Rate
+    c) The raw image data
+    d) Python library versions
+
+3.  **What command triggers the entire DVC pipeline?**
+    a) `python main.py`
+    b) `dvc repro`
+    c) `mlflow run`
+    d) `docker build`
+
+**Quiz 3: Deployment**
+1.  **What is the role of ECR (Elastic Container Registry) in our deployment?**
+    a) It hosts the website.
+    b) It stores the Docker images securely.
+    c) It trains the model in the cloud.
+    d) It manages GitHub Actions secrets.
+
+2.  **If you change code in `src/components`, which file must you also likely check/update to ensure the pipeline detects the change?**
+    a) `README.md`
+    b) `dvc.yaml` (dependencies section)
+    c) `requirements.txt`
+    d) `setup.py`
+
+---
+*Note: Solutions are available in the instructor's guide.*

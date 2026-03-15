@@ -1,0 +1,32 @@
+1. Learning Outcome:
+   - Master the end-to-end Machine Learning lifecycle from data ingestion to deployment.
+   - Learn to write modular, production-grade Python code for ML projects using Deep Learning (CNNs).
+   - Understand MLOps principles including automated pipelines (DVC) and experiment tracking (MLflow).
+   - Gain hands-on experience with AWS Cloud services (EC2, ECR, IAM).
+   - Implement CI/CD pipelines using GitHub Actions for automated deployment.
+   - Learn how to use VGG16 Transfer Learning for image classification.
+   - Build and deploy a Flask-based web application.
+
+2. What you will build:
+   - A robust "Chest Disease Classification System" capable of identifying Cancer/Normal/Pneumonia cases from CT scans.
+   - An automated Training Pipeline that handles data ingestion, model preparation, training, and evaluation.
+   - A Prediction Pipeline exposed via a Flask web user interface for real-time analysis.
+   - A fully automated deployment workflow that builds Docker images and deploys them to AWS EC2 whenever code is pushed to GitHub.
+
+3. Prerequisite:
+   - Proficiency in Python programming.
+   - Fundamental understanding of Deep Learning and CNN architectures.
+   - Basic familiarity with Git and version control.
+   - An AWS account (free tier is sufficient) and basic cloud knowledge is recommended.
+
+4. Technologies:
+   - Programming Language: Python
+   - Web Framework: Flask
+   - Deep Learning Framework: TensorFlow / Keras
+   - Experiment Tracking: MLflow, Dagshub
+   - Pipeline Orchestration: DVC (Data Version Control)
+   - Configuration Management: PyYAML
+   - Containerization: Docker
+   - CI/CD: GitHub Actions
+   - Cloud Platform: AWS (EC2, ECR, IAM)
+   - Frontend: HTML/CSS (Bootstrap/Tailwind)
